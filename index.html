@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Мониторинг температуры</title>
+    <script src="script/Chart.bundle.js"></script>
+    <script src="script/utils.js"></script>
+
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="Settings_ip">
+    <h1>Мониторинг температуры</h1>
+    <label>Адрес:</label>
+    <input type="text" id="ip_server" value="http://127.0.0.1:3000"> </input>
+    <button id="botton_connect">Подключить</button>
+    </div>
+
+<div id="Result_connect">
+ <label>Ожидаю соидинения...</label>
+</div>
+
+    <div id="Settings_monitoring" style="display:none">
+        <label style="color: darkblue"><b>Настройка мониторинга:</b></label><br>
+        <label>Запрос данных каждые:</label>
+        <input type="number" id="timer_interval" value="1" style=" width:60px " > сек.</input><br>
+        <button id="start_timer">Старт</button>
+        <button id="stop_timer">Стоп</button>
+        <button id="create_chart">График</button>
+        <input type="checkbox" id="online_chart">Онлайн</input><br>
+        <label>Количество запросов:</label>
+        <input type="number" id="limit_count" value="0" style=" width:60px " > кво.</input><br>
+
+    </div>
+
+    <div id="Chart" style="width:75%;display: none">
+        <canvas id="canvas"></canvas>
+    </div>
+
+<div id="Result_monitoring" style="display: none">
+    <div id="status_timer" style="color: green"></div>
+    <table id="table_monitoring" border="1">
+        <thead>Полученные данные: <span> <a id="visibility_table" href="Javascript:void(0)">Скрить(Показать)</a>  </span> <span> <a id="clear_table" href="Javascript:void(0)">Очистить</a>  </span> </thead>
+        <th>№ п/п </th> <th>Дата</th><th>Время</th><th>Значение</th>
+    </table>
+</div>
+
+<script src="script/script.js"></script>
+</body>
+</html>
